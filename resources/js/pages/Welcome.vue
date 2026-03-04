@@ -3,6 +3,7 @@ import { Head, Link } from '@inertiajs/vue3';
 import { dashboard, login, register } from '@/routes';
 import Header from '@/components/sections/Header.vue';
 import NavBar from '@/components/NavBar.vue';
+import Home from '@/components/sections/Home.vue';
 
 withDefaults(
     defineProps<{
@@ -16,10 +17,20 @@ withDefaults(
 
 <template>
     <div class="relative w-full">
-        <Header />
         
-        <div class="relative -mt-6 md:-mt-8 w-full z-20 px-4 md:px-8 lg:px-12 max-w-screen-3xl mx-auto">
-            <NavBar />
+        <div class="relative w-full z-30">
+            <Header />
+            
+            <div class="absolute bottom-0 left-0 w-full translate-y-1/2 px-4 md:px-8 lg:px-12 z-20">
+                <div class="max-w-screen-3xl mx-auto">
+                    <NavBar />
+                </div>
+            </div>
         </div>
+        
+        <div class="relative z-10 w-full">
+            <Home />
+        </div>
+
     </div>
 </template>
