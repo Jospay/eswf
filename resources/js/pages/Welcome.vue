@@ -2,6 +2,8 @@
 import Header from '@/components/sections/Header.vue';
 import NavBar from '@/components/NavBar.vue';
 import Home from '@/components/sections/Home.vue';
+import ESWFWorldCup from '@/components/sections/EswfWorldCup.vue';
+import WorldFederation from '@/components/sections/WorldFederation.vue';
 
 withDefaults(
     defineProps<{
@@ -26,9 +28,11 @@ withDefaults(
             </div>
         </div>
         
-        <div class="relative z-10 w-full">
+        <div class="relative z-10 w-full lg:pb-10 md:pb-0">
             <Home />
         </div>
-
+        <ESWFWorldCup />
+        <WorldFederation />
+        
     </div>
 </template>
