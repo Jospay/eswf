@@ -77,7 +77,7 @@ onUnmounted(() => $(carouselRef.value).trigger('destroy.owl.carousel'));
 </script>
 
 <template>
-    <div class="relative w-full bg-white pb-20">
+    <div class="relative w-full bg-white">
         <div
             id="home"
             class="relative w-full px-6 pt-24 pb-52 text-center"
@@ -88,7 +88,7 @@ onUnmounted(() => $(carouselRef.value).trigger('destroy.owl.carousel'));
                     alt="Hero Background"
                     class="h-full w-full object-cover opacity-100" 
                 />
-                <div class="absolute inset-0 bg-black/30"></div> 
+                <div class="absolute inset-0 dark:bg-black/30"></div> 
             </div>
 
             <div class="hero-content relative z-10 mx-auto w-full max-w-7xl space-y-6">
@@ -129,11 +129,12 @@ onUnmounted(() => $(carouselRef.value).trigger('destroy.owl.carousel'));
                 <div
                     v-for="(item, index) in carouselItems"
                     :key="index"
-                    class="item group pb-4"
+                    class="item group"
                 >
                     <div
                         class="group relative aspect-video overflow-hidden rounded-3xl border-5 border-white bg-neutral-800 shadow-2xl transition-all duration-500 hover:-translate-y-2"
                     >
+                        <div class="absolute inset-0 bg-linear-to-t from-[#137DC1] via-transparent to-transparent pointer-events-none"></div>
                         <img
                             :src="getCardImage(item)"
                             class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
