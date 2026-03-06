@@ -101,7 +101,7 @@ onUnmounted(() => $(carouselRef.value).trigger('destroy.owl.carousel'));
             </div>
         </div>
 
-        <div class="relative z-20 mx-auto -mt-32 w-full max-w-[90rem] px-12 sm:px-20 md:px-24">
+        <div class="relative z-20 mx-auto -mt-32 w-full max-w-360 px-12 sm:px-20 md:px-24">
             
             <button
                 @click="prevSlide"
@@ -149,7 +149,7 @@ onUnmounted(() => $(carouselRef.value).trigger('destroy.owl.carousel'));
                             />
                         </div>
 
-                        <div class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-transparent to-transparent p-4">
+                        <div class="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-black/80 via-transparent to-transparent p-4">
                             <div class="flex items-center justify-between gap-3">
                                 <a :href="item.link" class="flex-1">
                                     <h3 class="line-clamp-1 text-base font-bold text-white transition-colors group-hover:text-blue-400 sm:text-lg">
