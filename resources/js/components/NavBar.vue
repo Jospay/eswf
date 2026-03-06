@@ -103,7 +103,6 @@ const setActive = (linkName: string) => {
           <li><a href="#" @click="setActive('ESWF Commisions')" :class="activeLink === 'ESWF Commisions' ? 'text-[#137DC1] bg-blue-50' : 'text-heading'" class="block py-2 px-4 hover:bg-neutral-50 rounded-lg transition-colors duration-300">ESWF Commisions</a></li>
           <li><a href="#" @click="setActive('Licensing Dept')" :class="activeLink === 'Licensing Dept' ? 'text-[#137DC1] bg-blue-50' : 'text-heading'" class="block py-2 px-4 hover:bg-neutral-50 rounded-lg transition-colors duration-300">ESWF Licensing Department</a></li>
           <li><a href="#" @click="setActive('ESFW Cares')" :class="activeLink === 'ESFW Cares' ? 'text-[#137DC1] bg-blue-50' : 'text-heading'" class="block py-2 px-4 hover:bg-neutral-50 rounded-lg transition-colors duration-300">ESFW Cares</a></li>
-          <li><a href="#" @click="setActive('Secretariat')" :class="activeLink === 'Secretariat' ? 'text-[#137DC1] bg-blue-50' : 'text-heading'" class="block py-2 px-4 hover:bg-neutral-50 rounded-lg transition-colors duration-300">Secretariat</a></li>
           <li><a href="#" @click="setActive('Academy')" :class="activeLink === 'Academy' ? 'text-[#137DC1] bg-blue-50' : 'text-heading'" class="block py-2 px-4 hover:bg-neutral-50 rounded-lg transition-colors duration-300">World Esports & Digital sports Academy</a></li>
         </ul>
       </div>
