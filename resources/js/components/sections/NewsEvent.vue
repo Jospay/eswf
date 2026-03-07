@@ -54,7 +54,7 @@ const themeSong = {
     <header class="relative flex w-full max-w-380 min-h-60 md:min-h-70 my-8 mx-auto items-center rounded-3xl overflow-hidden px-6 md:px-16">
         <div class="absolute inset-0 z-0">
             <img
-                :src="headerImage"
+                :src="props.headerImage"
                 alt="Hero Background"
                 class="h-full w-full object-cover object-center" 
             />
@@ -63,10 +63,10 @@ const themeSong = {
 
         <div class="relative z-10 flex flex-col justify-center max-w-2xl text-white text-left">
             <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 drop-shadow-lg">
-                {{ title }}
+                {{ props.title }}
             </h1>
             <p class="text-xl sm:text-2xl md:text-3xl font-semibold drop-shadow-lg text-gray-200">
-                {{ subtitle }}
+                {{ props.subtitle }}
             </p>
         </div>
     </header>
@@ -81,7 +81,7 @@ const themeSong = {
         </figure>
 
         <article class="flex flex-col items-start gap-4 md:gap-6 w-full overflow-hidden">
-            <h2 class="text-[#137DC1] text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold leading-snug max-w-3xl break-words text-balance">
+            <h2 class="text-[#137DC1] text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold leading-snug max-w-3xl wrap-break-word text-balance">
                 {{ article.title }}
             </h2>
             

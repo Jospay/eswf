@@ -19,7 +19,7 @@ withDefaults(
 <template>
     <div class="relative w-full">
         
-        <div class="relative w-full z-50 sticky top-0">
+        <div class="sticky w-full z-50 top-0">
             <Header />
             
             <div class="absolute bottom-0 left-0 w-full translate-y-1/2 px-4 md:px-8 lg:px-12 z-20">
