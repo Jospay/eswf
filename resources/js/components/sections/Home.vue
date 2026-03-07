@@ -77,7 +77,7 @@ onUnmounted(() => $(carouselRef.value).trigger('destroy.owl.carousel'));
 </script>
 
 <template>
-    <div class="relative w-full bg-white">
+    <div class="relative w-full bg-white dark:bg-neutral-800">
         <div
             id="home"
             class="relative w-full px-6 pt-24 pb-52 text-center"

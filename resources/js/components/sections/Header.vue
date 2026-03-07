@@ -13,7 +13,7 @@ const props = withDefaults(defineProps<HeaderProps>(), {
 </script>
 
 <template>
-    <header class="flex w-full gap-6 items-center bg-white px-4 md:px-8 lg:px-12 pt-6 md:pt-8 pb-10 md:pb-12 justify-center md:justify-between relative z-10">
+    <header class="flex w-full gap-6 items-center bg-white dark:bg-neutral-800 px-4 md:px-8 lg:px-12 pt-6 md:pt-8 pb-10 md:pb-12 justify-center md:justify-between relative z-10">
         
         <div class="flex gap-3 sm:gap-4 md:gap-6 items-center">
             <div class="shrink-0">
