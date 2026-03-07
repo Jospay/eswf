@@ -33,8 +33,8 @@ const contentImage = computed(() => {
 });
 </script>
 <template>
-    <section class="w-full h-full bg-white flex flex-col">
-        <header class="relative z-30 flex items-center justify-center p-3 mt-5 text-xl font-medium text-white transition-colors bg-[#137DC1] sm:text-2xl md:text-4xl text-center">
+    <section class="w-full h-full bg-white dark:bg-neutral-800 flex flex-col">
+        <header class="relative z-30 flex items-center justify-center p-3 mt-5 text-xl font-medium text-white dark:bg-[#137DC1]/50 transition-colors bg-[#137DC1] sm:text-2xl md:text-4xl text-center">
             ESWF World Cup 2026 Philippines
         </header>
 
@@ -44,17 +44,21 @@ const contentImage = computed(() => {
             </div>
         </div>
 
-        <div class="relative w-full mt-8 transition-all duration-500 ease-in-out">
+        <div class="relative w-full mt-8 transition-all duration-500  ease-in-out">
+                <div class="absolute inset-0 bg-transparent dark:bg-black/20 transition-colors duration-500"></div>
+
             <img
                 :src="bgImage"
                 alt="Hero Background"
-                class="block w-full h-36 sm:h-auto xl:h-full object-cover object-center transition-all duration-500 ease-in-out"
+                class="block w-full h-36 sm:h-auto xl:h-full object-cover object-center transition-all duration-500 ease-in-out "
                 loading="lazy"
             />
 
             <div class="absolute top-0 left-1/2 z-20 w-[65%] sm:w-[50%] md:w-[45%] lg:w-[40%] xl:w-[35%] -translate-x-1/2 -translate-y-[60%] sm:-translate-y-1/2 transition-all duration-500 ease-in-out group">
                 
                 <div class="overflow-hidden shadow-2xl rounded-2xl aspect-video bg-gray-100 flex items-center justify-center transition-all duration-500 ease-in-out">
+                        <div class="absolute inset-0 bg-transparent dark:bg-black/10 transition-colors duration-500"></div>
+
                     <img
                         :src="contentImage"
                         class="object-cover w-full h-full transition-transform duration-500 ease-out group-hover:scale-105"

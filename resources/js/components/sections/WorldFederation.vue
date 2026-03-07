@@ -51,18 +51,18 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="w-full bg-white py-10">
+  <div class="w-full bg-white dark:bg-neutral-800 py-10">
     
     <div class="flex justify-center p-6 text-center text-5xl font-semibold text-[#137DC1]">
       World Federation of Esport
     </div>
 
     <div class="max-w-370 mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 py-3 px-4">
-      <div v-for="item in worldItems" :key="item.id" class="item-pill">
+      <div v-for="item in worldItems" :key="item.id" class="item-pill dark:bg-gray-800">
         <img :src="item.imageUrl" :alt="item.title" class="pill-img" />
         <div class="flex flex-col overflow-hidden">
           <h2 class="text-2xl font-bold text-[#137DC1] truncate">{{ item.title }}</h2>
-          <p class="text-gray-900 text-lg line-clamp-1">{{ item.description }}</p>
+          <p class="text-gray-900 dark:text-gray-300 text-lg line-clamp-1">{{ item.description }}</p>
         </div>
       </div>
     </div>
@@ -77,11 +77,11 @@ onMounted(() => {
       </button>
 
       <div class="owl-carousel owl-theme">
-        <div v-for="item in carouselItems" :key="item.id" class="item-pill flex! m-2">
+        <div v-for="item in carouselItems" :key="item.id" class="item-pill flex! m-2 dark:bg-gray-800">
           <img :src="item.imageUrl" :alt="item.title" class="pill-img" />
           <div class="flex flex-col overflow-hidden">
             <h2 class="text-2xl font-bold text-[#137DC1] truncate">{{ item.title }}</h2>
-            <p class="text-gray-900 text-lg line-clamp-1">{{ item.description }}</p>
+            <p class="text-gray-900 dark:text-gray-300 text-lg line-clamp-1">{{ item.description }}</p>
           </div>
         </div>
       </div>
@@ -99,7 +99,6 @@ onMounted(() => {
   align-items: center;
   gap: 1rem;
   padding: 0.75rem;
-  background-color: white;
   border-radius: 9999px;
   border-width: 1px;
   border-color: #eff6ff; /* blue-50 */
