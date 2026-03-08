@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import Header from '@/components/sections/Header.vue';
 import NavBar from '@/components/NavBar.vue';
-import Home from '@/components/sections/Home.vue';
+import AnniversarySection from '@/components/sections/AnniversarySection.vue';
 import ESWFWorldCup from '@/components/sections/EswfWorldCup.vue';
-import WorldFederation from '@/components/sections/WorldFederation.vue';
+import Header from '@/components/sections/Header.vue';
+import Home from '@/components/sections/Home.vue';
 import NewsEvent from '@/components/sections/NewsEvent.vue';
+import WorldFederation from '@/components/sections/WorldFederation.vue';
 
 withDefaults(
     defineProps<{
@@ -35,6 +36,7 @@ withDefaults(
         <ESWFWorldCup />
         <WorldFederation />
         <NewsEvent />
+        <AnniversarySection />
         
     </div>
 </template>

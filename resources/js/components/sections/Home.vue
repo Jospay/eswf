@@ -2,7 +2,7 @@
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue';
 
 // Tell TypeScript that jQuery ($) is globally available
-declare var $: any;
+declare let $: any;
 
 const props = defineProps({
     sectionData: {

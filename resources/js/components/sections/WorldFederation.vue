@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 
-declare var $: any;
+declare let $: any;
 
 interface EsportItem {
   id: number;
