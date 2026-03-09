@@ -55,7 +55,6 @@ const elevations = [
         </div>
 
         <div class="mx-auto mt-12 max-w-4xl space-y-8 px-4 text-center md:mt-16 md:space-y-10 lg:px-0">
-            
             <h2 class="text-2xl font-bold leading-snug text-[#137DC1] sm:text-3xl md:text-4xl">
                 Look: World Esports MOBA Headquarters Officially Opens at The Peak Central Tower in Parañaque City
             </h2>
@@ -88,7 +87,54 @@ const elevations = [
                     </svg>
                 </a>
             </div>
-
         </div>
+
+        <section class="mx-auto mt-16 grid max-w-7xl items-center gap-8 px-6 py-8 md:mt-24 md:grid-cols-2 md:gap-12 md:px-8 md:py-12">
+            <figure class="w-full">
+                <img 
+                    src="/assets/dost.jpg" 
+                    alt="DOST Post Highlight"
+                    class="h-auto w-full rounded-3xl object-cover shadow-lg"
+                >
+            </figure>
+
+            <article class="flex w-full flex-col items-start gap-4 overflow-hidden md:gap-6">
+                <h2 class="max-w-3xl wrap-break-words text-balance text-2xl font-bold leading-snug text-[#137DC1] sm:text-3xl lg:text-4xl">
+                    DOST Philippine's Post
+                </h2>
+                
+                <div class="space-y-5 text-base font-medium text-gray-800 dark:text-gray-300 sm:text-lg md:text-xl">
+                    <p>
+                        Look: Highlights from Day 1 of the 2025 International Smart City Exposition and Networking Engagement (iSCENE) at Cauayan City, Isabela.
+                    </p>
+                    <p>
+                        The three-day event held its opening ceremonies with various activities such as the MoCCOV Olympics, e-Sports Launching and Tournament, Robofusion and Robolympics, forums, and networking engagement.                
+                    </p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 sm:text-base">
+                        Captured by: Patrick James Lee Alfonso and Xyrus Ivan De Gracia, DOST-STII
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-x-6 gap-y-2 font-semibold text-[#137DC1]">
+                        <p>#OneDOST4U</p> 
+                        <p>#SolutionsOpportunitiesforAll</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+        
+        <div class="mt-8 flex justify-center pb-12">
+            <a
+                href="https://www.facebook.com/story.php?story_fbid=122176330376525176&id=61565755302140&rdid=HdXPfiWbgnKoeu39#"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 rounded-xl bg-[#137DC1] px-8 py-3.5 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-[#4089f7] hover:shadow-lg sm:px-12 sm:text-base md:px-16 md:text-lg"
+            >
+                Visit Website
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </a>
+        </div>
+        
     </div>
 </template>
