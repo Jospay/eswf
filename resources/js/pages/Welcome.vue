@@ -2,10 +2,11 @@
 import NavBar from '@/components/NavBar.vue';
 import Anniversary from '@/components/sections/Anniversary.vue';
 import ESWFWorldCup from '@/components/sections/EswfWorldCup.vue';
+import GamesAmusements from '@/components/sections/GamesAmusements.vue';
 import Header from '@/components/sections/Header.vue';
 import Headquarter from '@/components/sections/Headquarter.vue';
 import Home from '@/components/sections/Home.vue';
-import GamesAmusements from '@/components/sections/GamesAmusements.vue';
+import MetaGames from '@/components/sections/MetaGames.vue';
 import NewsEvent from '@/components/sections/NewsEvent.vue';
 import WorldFederation from '@/components/sections/WorldFederation.vue';
 withDefaults(
@@ -38,7 +39,9 @@ withDefaults(
         <WorldFederation />
         <NewsEvent />
         <Anniversary />
-        <Headquarter />
+        
+        <div class="2xl:pb-18 xl:pb-13 lg:pb-0"><Headquarter /></div>
         <GamesAmusements />
+        <MetaGames />
     </div>
 </template>
