@@ -5,6 +5,7 @@ import ESWFWorldCup from '@/components/sections/EswfWorldCup.vue';
 import Header from '@/components/sections/Header.vue';
 import Headquarter from '@/components/sections/Headquarter.vue';
 import Home from '@/components/sections/Home.vue';
+import GamesAmusements from '@/components/sections/GamesAmusements.vue';
 import NewsEvent from '@/components/sections/NewsEvent.vue';
 import WorldFederation from '@/components/sections/WorldFederation.vue';
 withDefaults(
@@ -38,5 +39,6 @@ withDefaults(
         <NewsEvent />
         <Anniversary />
         <Headquarter />
+        <GamesAmusements />
     </div>
 </template>
