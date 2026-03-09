@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import NavBar from '@/components/NavBar.vue';
-import AnniversarySection from '@/components/sections/AnniversarySection.vue';
+import Anniversary from '@/components/sections/Anniversary.vue';
 import ESWFWorldCup from '@/components/sections/EswfWorldCup.vue';
 import Header from '@/components/sections/Header.vue';
 import Home from '@/components/sections/Home.vue';
@@ -36,7 +36,7 @@ withDefaults(
         <ESWFWorldCup />
         <WorldFederation />
         <NewsEvent />
-        <AnniversarySection />
+        <Anniversary />
         
     </div>
 </template>
