@@ -186,7 +186,7 @@ const toggleReadMore = () => {
             <img
                 src="/assets/digitalgems.png"
                 alt="ESWF Anniversary Background"
-                class="h-auto w-full rounded-xl object-cover shadow-lg sm:rounded-2xl"
+                class="h-auto w-full rounded-xl object-cover sm:rounded-2xl"
             />
         </div>
 
