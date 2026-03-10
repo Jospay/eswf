@@ -99,7 +99,7 @@ onMounted(() => {
   padding: 0.75rem;
   border-radius: 9999px;
   border-width: 1px;
-  border-color: #eff6ff; /* blue-50 */
+  border-color: #eff6ff; 
   box-shadow: 0 10px 15px -3px rgba(19, 125, 193, 0.4);
   transition: all 0.3s;
 }
