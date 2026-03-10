@@ -23,7 +23,7 @@
                 <div class="w-full pt-[28.125%]"></div>
             </div>
 
-            <div class="w-full max-w-4xl px-6 pb-20 pt-10 text-center sm:px-12">
+            <div class="w-full max-w-6xl px-6 pb-20 pt-10 text-center sm:px-12">
                 <div class="space-y-6 text-base font-medium text-white sm:text-lg md:text-xl">
                     <h1 class="mb-4 text-2xl font-bold drop-shadow-sm sm:text-3xl md:text-4xl">
                         Games and Amusements Board

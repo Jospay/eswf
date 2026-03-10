@@ -19,7 +19,6 @@ const CONFIG = {
     STORAGE_PREFIX: '/storage/',
 };
 
-// 5. Clean, predictable computed properties
 const bgImage = computed(() => {
     return props.sectionData?.image_path
         ? `${CONFIG.STORAGE_PREFIX}${props.sectionData.image_path}`

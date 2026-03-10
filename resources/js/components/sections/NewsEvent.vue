@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// 1. Existing Header Props
 interface HeaderProps {
     headerImage?: string;
     title?: string;
@@ -12,7 +11,6 @@ const props = withDefaults(defineProps<HeaderProps>(), {
     subtitle: 'News & Events',
 });
 
-// 2. Article Data
 const article = {
     image: '/assets/news1.jpg',
     imageAlt: 'Website promotion image',
@@ -22,7 +20,6 @@ const article = {
     buttonLink: 'https://newsphilippinesonline.com/newnews/index.php'
 };
 
-// 3. Theme Song Data
 const themeSong = {
     image: '/assets/moa.jpg',
     imageAlt: 'Theme Song Image',

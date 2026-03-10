@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue';
 
-// Tell TypeScript that jQuery ($) is globally available
 declare let $: any;
 
 const props = defineProps({
@@ -20,7 +19,6 @@ const bgImage = computed(() => {
 const defaultTitle = 'Esports World Federation World Cup';
 const defaultContent = `An international esports competition platform organized to bring together players, teams, and federations from around the world. It aims to promote electronic sports across multiple game genres, support talent development, and provide a global stage for inclusive competitive gaming.`;
 
-// --- UTILITY: GET THUMBNAIL FROM LINK ---
 const getCardImage = (item: any) => {
     if (item.image && item.image !== '') return item.image;
     const youtubeRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
@@ -175,7 +173,6 @@ onUnmounted(() => $(carouselRef.value).trigger('destroy.owl.carousel'));
 </template>
 
 <style scoped>
-/* Force same height */
 :deep(.owl-stage) {
     display: flex;
     align-items: stretch;

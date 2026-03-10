@@ -10,14 +10,12 @@ interface EsportItem {
   imageUrl: string;
 }
 
-// 1. Static items for the first section (World Federation)
 const worldItems: EsportItem[] = [
   { id: 1, title: "First Person Shooter", description: "FPS Esports World Cup 2026", imageUrl: "/assets/wfps.png" },
   { id: 2, title: "Fighting Games", description: "FG Esports World Cup 2026", imageUrl: "/assets/wfg.png" },
   { id: 3, title: "Real-Time Strategy", description: "RTS Esports World Cup 2026", imageUrl: "/assets/wrts.png" },
 ];
 
-// 2. New sample data for the Carousel (International Federation)
 const carouselItems: EsportItem[] = [
   { id: 101, title: "Multiplayer Online Battle Arena", description: "MOBA Esports World Cup 2026", imageUrl: "/assets/imoba.png" },
   { id: 102, title: "Battle Royale", description: "BR Esports World Cup 2026", imageUrl: "/assets/ibr.png" },
@@ -114,7 +112,6 @@ onMounted(() => {
   flex-shrink: 0;
 }
 
-/* Fix Owl Carousel Image Override */
 :deep(.owl-carousel .owl-item img) {
   width: 5.5rem !important;
   display: inline-block;

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// Define your standard data here
 const bannerData = {
   heading: {
     prefix: 'Happy',
