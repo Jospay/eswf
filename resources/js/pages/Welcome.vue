@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import NavBar from '@/components/NavBar.vue';
 import Anniversary from '@/components/sections/Anniversary.vue';
+import DOST from '@/components/sections/DOST.vue';
 import ESWFWorldCup from '@/components/sections/EswfWorldCup.vue';
 import GamesAmusements from '@/components/sections/GamesAmusements.vue';
 import Header from '@/components/sections/Header.vue';
@@ -43,5 +44,7 @@ withDefaults(
         <div class="2xl:pb-18 xl:pb-13 lg:pb-0"><Headquarter /></div>
         <GamesAmusements />
         <MetaGames />
+        <DOST />
+        
     </div>
 </template>
