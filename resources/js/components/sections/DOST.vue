@@ -116,7 +116,7 @@ onUnmounted(() => {
 <template>
     <section class="w-full px-4 py-8 sm:px-6 md:py-12 lg:px-8 overflow-hidden">
         
-        <div class="mx-auto flex max-w-7xl flex-col items-center">
+         <div class="mx-auto flex max-w-7xl flex-col items-center">
             <h1 class="mb-6 text-center text-2xl font-semibold text-[#137DC1] sm:text-3xl md:text-4xl lg:text-5xl">
                 {{ article.title }}
             </h1>
@@ -147,15 +147,15 @@ onUnmounted(() => {
         </div>
 
         <div class="mx-auto mt-16 w-full max-w-6xl">
-            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 sm:gap-12">
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-12">
                 <div 
                     v-for="(imgSrc, index) in article.gridImages" 
                     :key="index"
-                    class="overflow-hidden rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl aspect-[2/4]"
+                    class="overflow-hidden rounded-2xl shadow-md transition-all duration-300 hover:shadow-xl"
                 >
                     <img 
                         :src="imgSrc" 
-                        alt="DOST Operations" 
+                        alt="DOST Operations Image" 
                         class="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                         loading="lazy"
                     />
