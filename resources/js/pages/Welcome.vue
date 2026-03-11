@@ -7,6 +7,7 @@ import GamesAmusements from '@/components/sections/GamesAmusements.vue';
 import Header from '@/components/sections/Header.vue';
 import Headquarter from '@/components/sections/Headquarter.vue';
 import Home from '@/components/sections/Home.vue';
+import Licenses from '@/components/sections/Licenses.vue';
 import MetaGames from '@/components/sections/MetaGames.vue';
 import NewsEvent from '@/components/sections/NewsEvent.vue';
 import WorldFederation from '@/components/sections/WorldFederation.vue';
@@ -45,6 +46,7 @@ withDefaults(
         <GamesAmusements />
         <MetaGames />
         <DOST />
+        <Licenses />
         
     </div>
 </template>
