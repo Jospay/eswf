@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import NavBar from '@/components/NavBar.vue';
 import Anniversary from '@/components/sections/Anniversary.vue';
+import ContinentalRegional from '@/components/sections/ContinentalRegional.vue';
 import DOST from '@/components/sections/DOST.vue';
 import ESWFWorldCup from '@/components/sections/EswfWorldCup.vue';
 import GamesAmusements from '@/components/sections/GamesAmusements.vue';
@@ -63,6 +64,7 @@ withDefaults(
 
         <div id="policy">
             <PolicyMaking />
+            <ContinentalRegional />
         </div>
     </div>
 </template>

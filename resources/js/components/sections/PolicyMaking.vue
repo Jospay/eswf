@@ -163,11 +163,11 @@ watch(showAllProfiles, async (isShowingAll) => {
                 >
                     <div class="relative w-full aspect-square shadow-md shadow-blue-300 z-10 overflow-hidden shrink-0">
                         <img :src="person.backGroundPicture" alt="Background" class="w-full h-full object-cover" />
-                        <img :src="person.flag" alt="Country Flag" class="absolute top-3 right-3 !w-8 !h-6 object-cover !rounded-[2px] shadow-sm border border-white" />
+                        <img :src="person.flag" alt="Country Flag" class="absolute top-3 right-3 w-8! h-6! object-cover rounded-[2px]! shadow-sm border border-white" />
                     </div>
                     
                     <div class="relative flex justify-center -mt-12 z-20 shrink-0">
-                        <img :src="person.profilePicture" alt="Profile" class="!w-24 !h-24 !rounded-full object-cover border-4 border-white dark:border-gray-800 bg-gray-100" />
+                        <img :src="person.profilePicture" alt="Profile" class="w-24! h-24! rounded-full! object-cover border-4 border-white dark:border-gray-800 bg-gray-100" />
                     </div>
                     
                     <div class="flex flex-col items-center justify-start text-center px-4 pt-2 pb-6 grow rounded-b-2xl overflow-hidden z-0">
