@@ -1,17 +1,36 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const isMenuOpen = ref(false)
 const activeLink = ref('Home')
 const isDarkMode = ref(false)
 
+// Sync initial dark mode state on load to prevent the double-click issue
+onMounted(() => {
+  if (
+    document.documentElement.classList.contains('dark') ||
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+  ) {
+    isDarkMode.value = true
+    document.documentElement.classList.add('dark')
+  }
+})
+
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
 }
 
-const setActive = (linkName: string) => {
+// Update state, close menu, and scroll to the correct section
+const setActive = (linkName: string, sectionId: string) => {
   activeLink.value = linkName
   isMenuOpen.value = false
+  
+  const element = document.getElementById(sectionId)
+  if (element) {
+    // 100px offset to account for your sticky header so it doesn't cover the title
+    const y = element.getBoundingClientRect().top + window.scrollY - 100 
+    window.scrollTo({ top: y, behavior: 'smooth' })
+  }
 }
 
 const toggleDarkMode = () => {
@@ -32,37 +51,37 @@ const toggleDarkMode = () => {
       
       <div class="flex flex-1 items-center justify-center overflow-hidden shrink">
         
-        <a href="#" @click="setActive('Home')" :class="activeLink === 'Home' ? 'text-[#137DC1]' : 'text-heading dark:text-gray-300'" 
+        <a href="#" @click.prevent="setActive('Home', 'home')" :class="activeLink === 'Home' ? 'text-[#137DC1]' : 'text-heading dark:text-gray-300'" 
            class="block overflow-hidden whitespace-nowrap font-medium hover:text-[#137DC1] dark:hover:text-[#137DC1] transition-all duration-500 ease-in-out max-w-0 opacity-0 ml-0 px-0 lg:max-w-25 lg:opacity-100 lg:px-2">
             Home
         </a>
         
-        <a href="#" @click="setActive('News and Events')" :class="activeLink === 'News and Events' ? 'text-[#137DC1]' : 'text-heading dark:text-gray-300'" 
+        <a href="#" @click.prevent="setActive('News and Events', 'news')" :class="activeLink === 'News and Events' ? 'text-[#137DC1]' : 'text-heading dark:text-gray-300'" 
            class="block overflow-hidden whitespace-nowrap font-medium hover:text-[#137DC1] dark:hover:text-[#137DC1] transition-all duration-500 ease-in-out max-w-0 opacity-0 ml-0 px-0 lg:max-w-50 lg:opacity-100 lg:ml-4 lg:px-2">
             News and Events
         </a>
         
-        <a href="#" @click="setActive('Policy Making')" :class="activeLink === 'Policy Making' ? 'text-[#137DC1]' : 'text-heading dark:text-gray-300'" 
-           class="block overflow-hidden whitespace-nowrap font-medium hover:text-[#137DC1] dark:hover:text-[#137DC1] transition-all duration-500 ease-in-out max-w-0 opacity-0 ml-0 px-0 lg:max-w-125 lg:opacity-100 lg:ml-4 lg:px-2">
-            Policy Making Bodies of Esports Genres Federations
-        </a>
-        
-        <a href="#" @click="setActive('Continental Cup')" :class="activeLink === 'Continental Cup' ? 'text-[#137DC1]' : 'text-heading dark:text-gray-300'" 
-           class="block overflow-hidden whitespace-nowrap font-medium hover:text-[#137DC1] dark:hover:text-[#137DC1] transition-all duration-500 ease-in-out max-w-0 opacity-0 ml-0 px-0 min-[1150px]:max-w-100 min-[1150px]:opacity-100 min-[1150px]:ml-4 min-[1150px]:px-2">
-            Continental and Regional Esports Cup
-        </a>
-        
-        <a href="#" @click="setActive('Partners')" :class="activeLink === 'Partners' ? 'text-[#137DC1]' : 'text-heading dark:text-gray-300'" 
-           class="block overflow-hidden whitespace-nowrap font-medium hover:text-[#137DC1] dark:hover:text-[#137DC1] transition-all duration-500 ease-in-out max-w-0 opacity-0 ml-0 px-0 min-[1250px]:max-w-37.5 min-[1250px]:opacity-100 min-[1250px]:ml-4 min-[1250px]:px-2">
-            Partners
-        </a>
-        
-        <a href="#" @click="setActive('Dispute Center')" :class="activeLink === 'Dispute Center' ? 'text-[#137DC1]' : 'text-heading dark:text-gray-300'" 
+        <a href="#" @click.prevent="setActive('Dispute Center', 'dispute')" :class="activeLink === 'Dispute Center' ? 'text-[#137DC1]' : 'text-heading dark:text-gray-300'" 
            class="block overflow-hidden whitespace-nowrap font-medium hover:text-[#137DC1] dark:hover:text-[#137DC1] transition-all duration-500 ease-in-out max-w-0 opacity-0 ml-0 px-0 min-[1450px]:max-w-100 min-[1450px]:opacity-100 min-[1450px]:ml-4 min-[1450px]:px-2">
             Philippine Dispute Resolution Center
         </a>
         
-        <a href="#" @click="setActive('Contact Us')" :class="activeLink === 'Contact Us' ? 'text-[#137DC1]' : 'text-heading dark:text-gray-300'" 
+        <a href="#" @click.prevent="setActive('Continental Cup', 'cup')" :class="activeLink === 'Continental Cup' ? 'text-[#137DC1]' : 'text-heading dark:text-gray-300'" 
+           class="block overflow-hidden whitespace-nowrap font-medium hover:text-[#137DC1] dark:hover:text-[#137DC1] transition-all duration-500 ease-in-out max-w-0 opacity-0 ml-0 px-0 min-[1150px]:max-w-100 min-[1150px]:opacity-100 min-[1150px]:ml-4 min-[1150px]:px-2">
+            Continental and Regional Esports Cup
+        </a>
+        
+        <a href="#" @click.prevent="setActive('Partners', 'partners')" :class="activeLink === 'Partners' ? 'text-[#137DC1]' : 'text-heading dark:text-gray-300'" 
+           class="block overflow-hidden whitespace-nowrap font-medium hover:text-[#137DC1] dark:hover:text-[#137DC1] transition-all duration-500 ease-in-out max-w-0 opacity-0 ml-0 px-0 min-[1250px]:max-w-37.5 min-[1250px]:opacity-100 min-[1250px]:ml-4 min-[1250px]:px-2">
+            Partners
+        </a>
+
+        <a href="#" @click.prevent="setActive('Policy Making', 'policy')" :class="activeLink === 'Policy Making' ? 'text-[#137DC1]' : 'text-heading dark:text-gray-300'" 
+           class="block overflow-hidden whitespace-nowrap font-medium hover:text-[#137DC1] dark:hover:text-[#137DC1] transition-all duration-500 ease-in-out max-w-0 opacity-0 ml-0 px-0 lg:max-w-125 lg:opacity-100 lg:ml-4 lg:px-2">
+            Policy Making Bodies of Esports Genres Federations
+        </a>
+        
+        <a href="#" @click.prevent="setActive('Contact Us', 'contact')" :class="activeLink === 'Contact Us' ? 'text-[#137DC1]' : 'text-heading dark:text-gray-300'" 
            class="block overflow-hidden whitespace-nowrap font-medium hover:text-[#137DC1] dark:hover:text-[#137DC1] transition-all duration-500 ease-in-out max-w-0 opacity-0 ml-0 px-0 min-[1600px]:max-w-37.5 min-[1600px]:opacity-100 min-[1600px]:ml-4 min-[1600px]:px-2">
             Contact Us
         </a>
@@ -112,24 +131,24 @@ const toggleDarkMode = () => {
           </li>
           <div class="md:hidden block h-px bg-neutral-100 dark:bg-neutral-800 my-2 mx-4"></div>
           
-          <li class="lg:hidden block"><a href="#" @click="setActive('Home')" :class="activeLink === 'Home' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Home</a></li>
-          <li class="lg:hidden block"><a href="#" @click="setActive('News and Events')" :class="activeLink === 'News and Events' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">News and Events</a></li>
-          <li class="lg:hidden block"><a href="#" @click="setActive('Policy Making')" :class="activeLink === 'Policy Making' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Policy Making Bodies of Esports Genres Federations</a></li>
+          <li class="lg:hidden block"><a href="#" @click.prevent="setActive('Home', 'home')" :class="activeLink === 'Home' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Home</a></li>
+          <li class="lg:hidden block"><a href="#" @click.prevent="setActive('News and Events', 'news')" :class="activeLink === 'News and Events' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">News and Events</a></li>
+          <li class="lg:hidden block"><a href="#" @click.prevent="setActive('Dispute Center', 'dispute')" :class="activeLink === 'Dispute Center' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Philippine Dispute Resolution Center</a></li>
           
-          <li class="hidden max-[1149px]:block"><a href="#" @click="setActive('Continental Cup')" :class="activeLink === 'Continental Cup' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Continental and Regional Esports Cup</a></li>
-          <li class="hidden max-[1249px]:block"><a href="#" @click="setActive('Partners')" :class="activeLink === 'Partners' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Partners</a></li>
-          <li class="hidden max-[1449px]:block"><a href="#" @click="setActive('Dispute Center')" :class="activeLink === 'Dispute Center' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Philippine Dispute Resolution Center</a></li>
-          <li class="hidden max-[1599px]:block"><a href="#" @click="setActive('Contact Us')" :class="activeLink === 'Contact Us' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Contact Us</a></li>
+          <li class="hidden max-[1149px]:block"><a href="#" @click.prevent="setActive('Continental Cup', 'cup')" :class="activeLink === 'Continental Cup' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Continental and Regional Esports Cup</a></li>
+          <li class="hidden max-[1249px]:block"><a href="#" @click.prevent="setActive('Partners', 'partners')" :class="activeLink === 'Partners' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Partners</a></li>
+          <li class="hidden max-[1449px]:block"><a href="#" @click.prevent="setActive('Policy Making', 'policy')" :class="activeLink === 'Policy Making' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Policy Making Bodies of Esports Genres Federations</a></li>
+          <li class="hidden max-[1599px]:block"><a href="#" @click.prevent="setActive('Contact Us', 'contact')" :class="activeLink === 'Contact Us' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Contact Us</a></li>
           
-          <li><a href="#" @click="setActive('Organizations')" :class="activeLink === 'Organizations' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Organizations</a></li>
-          <li><a href="#" @click="setActive('Regular Members')" :class="activeLink === 'Regular Members' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Regular Members</a></li>
-          <li><a href="#" @click="setActive('Associate Members')" :class="activeLink === 'Associate Members' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Associate Members</a></li>
-          <li><a href="#" @click="setActive('Affiliate Members')" :class="activeLink === 'Affiliate Members' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Affiliate Members</a></li>
-          <li><a href="#" @click="setActive('Meta Movement')" :class="activeLink === 'Meta Movement' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Meta Movement</a></li>
-          <li><a href="#" @click="setActive('ESWF Commisions')" :class="activeLink === 'ESWF Commisions' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">ESWF Commisions</a></li>
-          <li><a href="#" @click="setActive('Licensing Dept')" :class="activeLink === 'Licensing Dept' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">ESWF Licensing Department</a></li>
-          <li><a href="#" @click="setActive('ESFW Cares')" :class="activeLink === 'ESFW Cares' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">ESFW Cares</a></li>
-          <li><a href="#" @click="setActive('Academy')" :class="activeLink === 'Academy' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">World Esports & Digital sports Academy</a></li>
+          <li><a href="#" @click.prevent="setActive('Organizations', 'organizations')" :class="activeLink === 'Organizations' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Organizations</a></li>
+          <li><a href="#" @click.prevent="setActive('Regular Members', 'regular-members')" :class="activeLink === 'Regular Members' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Regular Members</a></li>
+          <li><a href="#" @click.prevent="setActive('Associate Members', 'associate-members')" :class="activeLink === 'Associate Members' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Associate Members</a></li>
+          <li><a href="#" @click.prevent="setActive('Affiliate Members', 'affiliate-members')" :class="activeLink === 'Affiliate Members' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Affiliate Members</a></li>
+          <li><a href="#" @click.prevent="setActive('Meta Movement', 'meta')" :class="activeLink === 'Meta Movement' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">Meta Movement</a></li>
+          <li><a href="#" @click.prevent="setActive('ESWF Commisions', 'commissions')" :class="activeLink === 'ESWF Commisions' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">ESWF Commisions</a></li>
+          <li><a href="#" @click.prevent="setActive('Licensing Dept', 'licenses')" :class="activeLink === 'Licensing Dept' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">ESWF Licensing Department</a></li>
+          <li><a href="#" @click.prevent="setActive('ESFW Cares', 'cares')" :class="activeLink === 'ESFW Cares' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">ESFW Cares</a></li>
+          <li><a href="#" @click.prevent="setActive('Academy', 'academy')" :class="activeLink === 'Academy' ? 'text-[#137DC1] bg-blue-50 dark:bg-neutral-800' : 'text-heading dark:text-gray-300'" class="block py-2 px-4 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-lg transition-colors duration-300">World Esports & Digital sports Academy</a></li>
         </ul>
       </div>
     </transition>
@@ -137,7 +156,6 @@ const toggleDarkMode = () => {
 </template>
 
 <style scoped>
-/* Same CSS as before */
 .menu-slide-enter-active,
 .menu-slide-leave-active {
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
