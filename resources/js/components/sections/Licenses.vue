@@ -17,15 +17,11 @@ const licenses = {
         },
     ],
     imageAlt: 'GAB Courtesy Visit',
-    title: [
-        'ESWF Pan America Permit',
-        'MetaGames Certificate',
-    ],
+    title: ['ESWF Pan America Permit', 'MetaGames Certificate'],
     license: 'Licenses',
     paragraphs: [
         'One of the roles of ESWF is to supervise, support and monitor the organization of the MetaGames; ensure that they run smoothly; and to make sure that the rules of the MetaGames Charter and the MetaGames Host Contract are respected.',
         'Januray 17, 2023',
-        
     ],
     download: {
         link: [
@@ -383,7 +379,9 @@ const forceDownload = async (imgUrl: string, index: number) => {
                 class="w-full bg-linear-to-b from-transparent from-50% to-[#137DC1] to-50%"
             >
                 <div class="mx-auto w-full max-w-7xl px-6 pt-4 sm:px-12">
-                    <div class="grid w-full grid-cols-1 gap-6 md:grid-cols-3 shadow-xl shadow-blue-500">
+                    <div
+                        class="grid w-full grid-cols-1 gap-6 shadow-xl shadow-blue-500 md:grid-cols-3"
+                    >
                         <div
                             v-for="(item, index) in licenses.images"
                             :key="index"
@@ -433,66 +431,99 @@ const forceDownload = async (imgUrl: string, index: number) => {
             </div>
 
             <div class="flex w-full flex-col items-center bg-[#137DC1]">
-    <div class="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 md:py-16 lg:px-8 text-center">
-        
-    <div class="mb-12 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
-        <h2 class="text-xl font-semibold text-white drop-shadow-sm sm:text-2xl md:text-3xl">
-            {{ licenses.title[0] }}
-        </h2>
+                <div
+                    class="mx-auto w-full max-w-5xl px-4 py-10 text-center sm:px-6 md:py-16 lg:px-8"
+                >
+                    <div
+                        class="mb-12 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6"
+                    >
+                        <h2
+                            class="text-xl font-semibold text-white drop-shadow-sm sm:text-2xl md:text-3xl"
+                        >
+                            {{ licenses.title[0] }}
+                        </h2>
 
-        <a
-            :href="licenses.download.link[0]"
-            :download="licenses.download.filename[0]"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex shrink-0 items-center gap-2 rounded-lg border-2 border-white bg-[#E94140] px-6 py-2 text-sm font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-red-500 hover:shadow-lg md:text-base"
-            title="Download Permit 1"
-        >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
-            </svg>
-            Download
-        </a>
-    </div>
+                        <a
+                            :href="licenses.download.link[0]"
+                            :download="licenses.download.filename[0]"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex shrink-0 items-center gap-2 rounded-lg border-2 border-white bg-[#E94140] px-6 py-2 text-sm font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-red-500 hover:shadow-lg md:text-base"
+                            title="Download Permit 1"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                            Download
+                        </a>
+                    </div>
 
-    <div class="mx-auto mb-12 max-w-5xl space-y-3">
-        <h2 class="text-2xl font-bold tracking-wide text-white sm:text-3xl md:text-4xl">
-            {{ licenses.license }}
-        </h2>
-        
-        <div class="space-y-4 text-base font-medium leading-relaxed text-white/95 sm:text-lg md:text-xl">
-            <p
-                v-for="(paragraph, index) in licenses.paragraphs"
-                :key="index"
-            >
-                {{ paragraph }}
-            </p>
-        </div>
-    </div>
+                    <div class="mx-auto mb-12 max-w-5xl space-y-3">
+                        <h2
+                            class="text-2xl font-bold tracking-wide text-white sm:text-3xl md:text-4xl"
+                        >
+                            {{ licenses.license }}
+                        </h2>
 
-    <div class="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
-        <h2 class="text-xl font-semibold text-white drop-shadow-sm sm:text-2xl md:text-3xl">
-            {{ licenses.title[1] }}
-        </h2>
+                        <div
+                            class="space-y-4 text-base leading-relaxed font-medium text-white/95 sm:text-lg md:text-xl"
+                        >
+                            <p
+                                v-for="(
+                                    paragraph, index
+                                ) in licenses.paragraphs"
+                                :key="index"
+                            >
+                                {{ paragraph }}
+                            </p>
+                        </div>
+                    </div>
 
-        <a
-            :href="licenses.download.link[1]"
-            :download="licenses.download.filename[1]"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex shrink-0 items-center gap-2 rounded-lg border-2 border-white bg-[#E94140] px-6 py-2 text-sm font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-red-500 hover:shadow-lg md:text-base"
-            title="Download Permit 2"
-        >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
-            </svg>
-            Download
-        </a>
-    </div>
+                    <div
+                        class="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6"
+                    >
+                        <h2
+                            class="text-xl font-semibold text-white drop-shadow-sm sm:text-2xl md:text-3xl"
+                        >
+                            {{ licenses.title[1] }}
+                        </h2>
 
-</div>
-
-</div>
+                        <a
+                            :href="licenses.download.link[1]"
+                            :download="licenses.download.filename[1]"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="flex shrink-0 items-center gap-2 rounded-lg border-2 border-white bg-[#E94140] px-6 py-2 text-sm font-bold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-red-500 hover:shadow-lg md:text-base"
+                            title="Download Permit 2"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-5 w-5"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"
+                                />
+                            </svg>
+                            Download
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </template>
