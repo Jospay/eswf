@@ -11,6 +11,7 @@ import Home from '@/components/sections/Home.vue';
 import Licenses from '@/components/sections/Licenses.vue';
 import MetaGames from '@/components/sections/MetaGames.vue';
 import NewsEvent from '@/components/sections/NewsEvent.vue';
+import Partners from '@/components/sections/Partners.vue';
 import PolicyMaking from '@/components/sections/PolicyMaking.vue';
 import WorldFederation from '@/components/sections/WorldFederation.vue';
 
@@ -65,6 +66,9 @@ withDefaults(
         <div id="policy">
             <PolicyMaking />
             <ContinentalRegional />
+        </div>
+        <div id="partner">
+            <Partners />
         </div>
     </div>
 </template>
