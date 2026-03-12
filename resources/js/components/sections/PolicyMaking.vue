@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref, computed } from 'vue';
+
 interface HeaderProps {
     headerImage?: string;
     title?: string;
@@ -9,14 +11,16 @@ const props = withDefaults(defineProps<HeaderProps>(), {
     title: 'Policy making Bodies of Esports Genres Federations',
 });
 
-const profiles = [
+// Added showDetails to manage individual toggles, and expanded to 9 profiles
+const profiles = ref([
     {
         name: 'Mark Hatter',
         role: 'President MMORPG',
         profilePicture: '/assets/p1.png',
         backGroundPicture: '/assets/p1.jpg',
         flag: '/assets/p1f.jpg',
-        description: ''
+        description: 'Oversees the global MMORPG electronic sports division, focusing on large-scale competitive raids and PvP tournaments.',
+        showDetails: false
     },
     {
         name: 'Arniel O. Gutierrez',
@@ -24,7 +28,8 @@ const profiles = [
         profilePicture: '/assets/p2.png',
         backGroundPicture: '/assets/p2.jpg',
         flag: '/assets/p2f.jpg',
-        description: ''
+        description: 'The visionary founder of the federation, dedicated to standardizing esports policies worldwide.',
+        showDetails: false
     },
     {
         name: 'Andy Koh',
@@ -32,9 +37,81 @@ const profiles = [
         profilePicture: '/assets/p3.png',
         backGroundPicture: '/assets/p3.jpg',
         flag: '/assets/p3f.jpg',
-        description: 'President Asia Pacific Electronic Sports Confederation'
+        description: 'President Asia Pacific Electronic Sports Confederation, managing regional qualifiers and development programs.',
+        showDetails: false
+    },
+    {
+        name: 'Juan Dela Cruz',
+        role: '',
+        profilePicture: '/assets/p4.png',
+        backGroundPicture: '/assets/p4.jpg',
+        flag: '/assets/p4f.jpg',
+        description: '',
+        showDetails: false
+    },
+    {
+        name: 'Timothy Shen',
+        role: 'Global Ambassador',
+        profilePicture: '/assets/p5.png',
+        backGroundPicture: '/assets/p5.jpg',
+        flag: '/assets/pf5.jpg',
+        description: 'CEO & Founder Yesports Media Group',
+        showDetails: false
+    },
+    {
+        name: 'Vinay Java',
+        role: 'Founder and CEO Barrix Esports',
+        profilePicture: '/assets/p6.png',
+        backGroundPicture: '/assets/p6.jpg',
+        flag: '/assets/p6f.jpg',
+        description: 'Coordinates international LAN events, ensuring venue standards and broadcast quality.',
+        showDetails: false
+    },
+    {
+        name: 'Ivan Brinklow',
+        role: 'President International Federation of eSports Rhythm Games',
+        profilePicture: '/assets/p7.png',
+        backGroundPicture: '/assets/p7.jpg',
+        flag: '/assets/p7f.jpg',
+        description: 'and Chair of Regional MetaSports Commission.',
+        showDetails: false
+    },
+    {
+        name: 'Paolo Blasi',
+        role: 'President: ESWF Italy',
+        profilePicture: '/assets/p8.png',
+        backGroundPicture: '/assets/p8.jpg',
+        flag: '/assets/p8f.jpg',
+        description: 'National President: MetaSports Governing Body',
+        showDetails: false
+    },
+    {
+        name: 'Leonard Loftus',
+        role: 'Deputy President: ESWF Member Nations',
+        profilePicture: '/assets/p9.png',
+        backGroundPicture: '/assets/p9.jpg',
+        flag: '/assets/p9f.jpg',
+        description: 'President: ESWF South Africa National President: MetaSports Governing Body',
+        showDetails: false
+    },
+    {
+        name: 'Juan Dela Cruz',
+        role: '',
+        profilePicture: '/assets/p10    .png',
+        backGroundPicture: '/assets/p10.jpg',
+        flag: '/assets/p10f.jpg',
+        description: '',
+        showDetails: false
     }
-];
+
+]);
+
+const showAllProfiles = ref(false);
+
+// Computes whether to show 3 or all 9 based on the toggle state
+const visibleProfiles = computed(() => {
+    return showAllProfiles.value ? profiles.value : profiles.value.slice(0, 3);
+});
 </script>
 
 <template>
@@ -54,9 +131,9 @@ const profiles = [
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             
             <div 
-                v-for="(person, index) in profiles" 
+                v-for="(person, index) in visibleProfiles" 
                 :key="index" 
-                class="relative flex flex-col w-full aspect-2/3 bg-white p-3 dark:bg-gray-800 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-700"
+                class="relative flex flex-col w-full h-full bg-white p-3 dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
             >
                 <div class="relative w-full aspect-square shadow-md shadow-blue-300 z-10 overflow-hidden shrink-0">
                     <img 
@@ -68,7 +145,7 @@ const profiles = [
                     <img 
                         :src="person.flag" 
                         alt="Country Flag" 
-                        class="absolute top-3 right-3 w-8 h-6 object-cover rounded-[2px] shadow-sm border border-black/10" 
+                        class="absolute top-3 right-3 w-8 h-6 object-cover rounded-[2px] shadow-sm border border-white" 
                     />
                 </div>
                 
@@ -80,26 +157,69 @@ const profiles = [
                     />
                 </div>
 
-                <div class="flex flex-col items-center justify-center text-center px-4 pt-2 pb-6 grow rounded-b-2xl overflow-hidden z-0">
+                <div class="flex flex-col items-center justify-start text-center px-4 pt-2 pb-6 grow rounded-b-2xl overflow-hidden z-0">
                     <h2 class="text-xl sm:text-lg lg:text-xl font-bold text-[#137DC1] dark:text-[#3da0e6] w-full truncate">
                         {{ person.name }}
                     </h2>
                     <p class="text-gray-900 dark:text-gray-300 text-sm font-medium mt-1 w-full truncate">
                         {{ person.role }}
                     </p>
-                    <p v-if="person.description" class="text-gray-900 text-xs mt-2 line-clamp-2">
+                    
+                    <button 
+                        @click="person.showDetails = !person.showDetails"
+                        class="inline-flex items-center gap-2 rounded-lg bg-[#137DC1] px-6 py-1.5 mt-4 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#4089f7] cursor-pointer"
+                    >
+                        {{ person.showDetails ? 'Hide Details' : 'Show Details' }}
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 transition-transform duration-300"
+                            :class="person.showDetails ? 'rotate-180' : ''"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+                    </button>
+
+                    <p 
+                        v-if="person.showDetails && person.description" 
+                        class="text-gray-700 dark:text-gray-300 text-sm mt-4 animate-fade-in"
+                    >
                         {{ person.description }}
                     </p>
                 </div>
-                
             </div>
+        </div>
 
+        <div class="mt-12 flex justify-center pb-2">
+            <button
+                @click="showAllProfiles = !showAllProfiles"
+                class="inline-flex items-center gap-2 rounded-lg bg-[#137DC1] px-10 py-2 text-base font-medium text-white transition-all duration-300 hover:-translate-y-1 hover:bg-[#4089f7] md:text-lg cursor-pointer"
+            >
+                {{ showAllProfiles ? 'Show Less' : 'See All' }}
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 transition-transform duration-300"
+                    :class="showAllProfiles ? 'rotate-180' : ''"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                    />
+                </svg>
+            </button>
         </div>
     </section>
 </template>
 
 <style scoped>
-/* Scrollbar styles remain the same */
 .custom-scrollbar {
     scrollbar-width: thin;
     scrollbar-color: #137DC1 transparent; 
@@ -121,5 +241,13 @@ const profiles = [
     .custom-scrollbar::-webkit-scrollbar-thumb {
         background-color: #006aff; 
     }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 </style>
