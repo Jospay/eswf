@@ -53,7 +53,7 @@ const partners = [
         :style="{ animationDelay: `${index * 150}ms` }"
       >
         
-        <div class="flex w-full flex-shrink-0 items-center justify-center md:w-1/3 lg:w-1/4">
+        <div class="flex w-full shrink-0 items-center justify-center md:w-1/3 lg:w-1/4">
           <img 
             :src="partner.image" 
             :alt="partner.title" 
@@ -81,14 +81,20 @@ const partners = [
           </div>
 
           <div class="mt-2">
+            
             <a 
               :href="partner.links" 
               target="_blank" 
               rel="noopener noreferrer" 
-              class="inline-flex items-center justify-center gap-2 rounded-lg bg-yellow-400 px-8 py-2.5 text-sm font-semibold text-gray-900 shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-yellow-500"
+              class="inline-flex items-center justify-center gap-2 rounded-lg bg-[#137DC1] px-12 py-3 text-md font-medium text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-blue-500"
             >
+            
               View Website
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
             </a>
+            
           </div>
         </div>
 
