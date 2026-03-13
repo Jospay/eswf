@@ -46,6 +46,28 @@ const contactData = {
             imagePath: '/assets/tiktok.png',
         },
     ],
+    meta:[
+    {
+        image: `/assets/metag.png`,
+        title:`MetaSports Management Eco-System`,
+        color:`#1BAF6B`
+    },
+    {
+        image: `/assets/metab.png`,
+        title:`MetaSports Diplomacy`,
+        color:`#137DC1`
+    },
+    {
+        image: `/assets/metay.png`,
+        title:`Metasports Licensing`,
+        color:`#FBD408  `
+    },
+    {
+        image: `/assets/metagames.png`,
+        title:`publisher Partners`,
+        color:`black`
+    },
+    ]
 };
 
 
@@ -300,6 +322,29 @@ const contactData = {
         </a>
     </div>
 </div>
+            </div>
+        </div>
+        
+        <div class="mx-auto mt-10 flex max-w-6xl flex-col px-4 sm:mt-16 sm:px-8">
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-8">
+                <div
+                    v-for="(item, index) in contactData.meta"
+                    :key="index"
+                    class="flex items-center gap-6 rounded-xl bg-white p-6 transition-transform duration-300 hover:-translate-y-1 dark:bg-gray-800"
+                    :style="{ boxShadow: `0px 4px 12px -2px ${item.color}` }"
+                >
+                    <img
+                        :src="item.image"
+                        :alt="item.title"
+                        class="h-14 w-14 shrink-0 object-contain sm:h-16 sm:w-16"
+                    />
+                    <h4
+                        class="text-lg font-bold leading-snug sm:text-xl"
+                        :style="{ color: item.color }"
+                    >
+                        {{ item.title }}
+                    </h4>
+                </div>
             </div>
         </div>
     </section>
