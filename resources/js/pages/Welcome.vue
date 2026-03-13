@@ -5,6 +5,7 @@ import ContactUs from '@/components/sections/ContactUs.vue';
 import ContinentalRegional from '@/components/sections/ContinentalRegional.vue';
 import DOST from '@/components/sections/DOST.vue';
 import ESWFWorldCup from '@/components/sections/EswfWorldCup.vue';
+import Footer from '@/components/sections/Footer.vue';
 import GamesAmusements from '@/components/sections/GamesAmusements.vue';
 import Header from '@/components/sections/Header.vue';
 import Headquarter from '@/components/sections/Headquarter.vue';
@@ -74,5 +75,6 @@ withDefaults(
         <div id="contact">
             <ContactUs />
         </div>
+        <Footer />
     </div>
 </template>
