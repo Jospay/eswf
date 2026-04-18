@@ -16,7 +16,7 @@ const bgImage = computed(() => {
         : '/assets/bghome.jpg';
 });
 
-const defaultTitle = 'Esports World Federation World Cup';
+const defaultTitle = 'Esports World Federation';
 const defaultContent = `An international esports competition platform organized to bring together players, teams, and federations from around the world. It aims to promote electronic sports across multiple game genres, support talent development, and provide a global stage for inclusive competitive gaming.`;
 
 const getCardImage = (item: any) => {

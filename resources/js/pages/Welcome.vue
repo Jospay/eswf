@@ -15,6 +15,7 @@ import MetaGames from '@/components/sections/MetaGames.vue';
 import NewsEvent from '@/components/sections/NewsEvent.vue';
 import Partners from '@/components/sections/Partners.vue';
 import PolicyMaking from '@/components/sections/PolicyMaking.vue';
+import UnderReconstruction from '@/components/sections/UnderReconstruction.vue';
 import WorldFederation from '@/components/sections/WorldFederation.vue';
 
 withDefaults(
@@ -28,6 +29,8 @@ withDefaults(
 </script>
 
 <template>
+        <UnderReconstruction />
+
     <div class="relative w-full">
         <div class="sticky top-0 z-50 w-full">
             <Header id="contact" />
